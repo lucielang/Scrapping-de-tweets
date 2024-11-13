@@ -47,9 +47,10 @@ contents = []
 # Ensemble pour vérifier l'unicité
 tweets_seen = set()
 
+
 # Fonction pour collecter des tweets
 def collect_tweets():
-    new_tweets_found = False # Initialiser le drapeau pour détecter de nouveaux tweets
+    new_tweets_found = False  # Initialiser le drapeau pour détecter de nouveaux tweets
     tweet_elements = driver.find_elements(By.XPATH, "(//div[contains(@class, 'css-175oi2r r-1igl3o0 r-qklmqi r-1adg3ll r-1ny4l3l')])")
     for element in tweet_elements:
         try:
@@ -62,32 +63,31 @@ def collect_tweets():
                 usernames.append(username_recup)
                 dates.append(date_recup)
                 contents.append(content_recup)
-                new_tweets_found = True # Détecter un nouveau tweet
+                new_tweets_found = True  # Détecter un nouveau tweet
         except Exception as e:
             continue
-    return new_tweets_found # Retourne True si de nouveaux tweets ont été ajoutés
-
+    return new_tweets_found  # Retourne True si de nouveaux tweets ont été ajoutés
 
 
 # Boucle pour défiler et collecter jusqu'à obtenir 10 000 tweets
-max_no_new_tweets = 3 # Nombre maximal de tentatives sans nouveaux tweets avant de s'arrêter
-no_new_tweets_count = 0 # Compteur pour les tentatives sans nouveaux tweets
+max_no_new_tweets = 3  # Nombre maximal de tentatives sans nouveaux tweets avant de s'arrêter
+no_new_tweets_count = 0  # Compteur pour les tentatives sans nouveaux tweets
 
 while len(usernames) < 20 and no_new_tweets_count < max_no_new_tweets:
-    if collect_tweets(): # Si de nouveaux tweets sont collectés
-        no_new_tweets_count = 0 # Réinitialiser le compteur si des tweets ont été collectés
+    if collect_tweets():  # Si de nouveaux tweets sont collectés
+        no_new_tweets_count = 0  # Réinitialiser le compteur si des tweets ont été collectés
     else:
-        no_new_tweets_count += 1 # Si aucun tweet n'est collecté, incrémenter le compteur
+        no_new_tweets_count += 1  # Si aucun tweet n'est collecté, incrémenter le compteur
 
 # Scrolling pour charger davantage de tweets si aucun nouveau tweet n'est trouvé
-    for _ in range(5): # Défiler 5 fois
-        driver.execute_script("window.scrollBy(0, window.innerHeight);") # Défiler de la hauteur de la fenêtre
-        time.sleep(2) # Attendre le chargement des nouveaux tweets
-        if collect_tweets(): # Si de nouveaux tweets sont trouvés après le défilement
-            no_new_tweets_count = 0 # Réinitialiser le compteur
-            break # Sort de la boucle si de nouveaux tweets sont trouvés
+    for _ in range(5):  # Défiler 5 fois
+        driver.execute_script("window.scrollBy(0, window.innerHeight);")
+        time.sleep(2)  # Attendre le chargement des nouveaux tweets
+        if collect_tweets():  # Si de nouveaux tweets sont trouvés après le défilement
+            no_new_tweets_count = 0  # Réinitialiser le compteur
+            break  # Sort de la boucle si de nouveaux tweets sont trouvés
 
-    if no_new_tweets_count >= max_no_new_tweets: # Si le nombre de tentatives sans nouveaux tweets est trop élevé
+    if no_new_tweets_count >= max_no_new_tweets:  
         print("Aucun nouveau tweet trouvé après plusieurs tentatives, arrêt.")
         break
 
@@ -95,15 +95,9 @@ while len(usernames) < 20 and no_new_tweets_count < max_no_new_tweets:
 print(f"Total des tweets récupérés : {len(usernames)}")
 driver.quit()
 
-
-
 # Créer un DataFrame et enregistrer les données dans un fichier Excel
 
-data = {
-'Username': usernames,
-'Date': dates,
-'Content': contents
-}
+data = {'Username': usernames, 'Date': dates, 'Content': contents}
 
 df = pd.DataFrame(data)
 df.to_excel("tweets.xlsx", index=False)
