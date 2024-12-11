@@ -2,7 +2,7 @@ import pandas as pd
 from datetime import datetime, timedelta
 
 # Charger le fichier Excel contenant les dates
-df = pd.read_excel('tweets_quit.xlsx')
+df = pd.read_excel('~/work/Scrapping_tweets/Scrapping_tweets/essai.xlsx')
 
 #nettoyer la base de données en mettant des 0 si pas de vues, reposts, comments ou likes
 colonnes_a_nettoyer = ['Comments', 'Repost', 'Likes', 'Views']
@@ -89,5 +89,5 @@ df['YearWeek'] = df['ConvertedDate'].dt.strftime('%Y-%U')
 df['YearMonth'] = df['ConvertedDate'].dt.strftime('%Y-%m')
 
 # Sauvegarder dans un fichier Excel
-df.to_excel('dates_converties.xlsx', index=False)
+df.to_excel('~/work/Scrapping_tweets/Scrapping_tweets/dates_converties.xlsx', index=False)
 
