@@ -29,7 +29,7 @@ explore_button.click()
 time.sleep(5)
 
 search_bar = driver.find_element(By.XPATH, "//input[@aria-label='Search query']")
-search_bar.send_keys("(leaving OR leave OR quitting) twitter musk until:2024-03-04 since:2024-01-01")
+search_bar.send_keys('(leaving OR leave OR quitting) twitter musk until:2024-11-30 since:2024-01-01')
 search_bar.send_keys(Keys.RETURN)
 time.sleep(7)
 
