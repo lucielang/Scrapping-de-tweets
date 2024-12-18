@@ -4,22 +4,26 @@ from selenium.webdriver.common.by import By
 import time
 import pandas as pd
 
+email = input("Adresse e-mail : ")
+username = input("Nom d'utilisateur : ")
+password = input("Mot de passe : ")
+
 driver = webdriver.Chrome()
 driver.get('https://x.com/i/flow/login')
 time.sleep(10)
 
 # Connexion
 username_input = driver.find_element('name', 'text')
-username_input.send_keys('philipa.seilles@ensae.fr')
+username_input.send_keys(email)
 username_input.send_keys(Keys.RETURN)
 time.sleep(5)
 
-webdriver.ActionChains(driver).send_keys('car_pelet').perform()
+webdriver.ActionChains(driver).send_keys(username).perform()
 webdriver.ActionChains(driver).send_keys(Keys.RETURN).perform()
 time.sleep(5)
 
 password_input = driver.find_element('name', 'password')
-password_input.send_keys('w7a4731O')
+password_input.send_keys(password)
 password_input.send_keys(Keys.RETURN)
 time.sleep(5)
 
@@ -29,7 +33,7 @@ explore_button.click()
 time.sleep(5)
 
 search_bar = driver.find_element(By.XPATH, "//input[@aria-label='Search query']")
-search_bar.send_keys('(leaving OR leave OR quitting) twitter musk until:2024-11-30 since:2024-01-01')
+search_bar.send_keys('(leaving OR leave OR quit OR quitting) (twitter OR X) musk until:2024-11-30 since:2024-01-01')
 search_bar.send_keys(Keys.RETURN)
 time.sleep(7)
 
@@ -121,5 +125,5 @@ data = {
 }
 
 df = pd.DataFrame(data)
-df.to_excel("tweets_leave_9.xlsx", index=False)
-print("Fichier tweets_leave_9.xlsx créé avec succès.")
+df.to_excel("tweets.xlsx", index=False)
+print("Fichier tweets.xlsx créé avec succès.")
