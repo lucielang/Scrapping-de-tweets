@@ -1,4 +1,4 @@
-# Etude de l'utilisation de Twitter par ses utilisateurs en 2024 :bluebird:
+# Etude de l'utilisation de Twitter par ses utilisateurs en 2024 :bird:
 
 Bienvenue sur le Github présentant notre projet Python dans le cadre du cours Python pour la data science. 
 
