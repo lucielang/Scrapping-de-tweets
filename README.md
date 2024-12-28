@@ -9,11 +9,18 @@ Pour trouver notre notebook final, il suffit de cliquer sur celui qui s'intitule
 
 
 
-### Récapitulatif des notebooks et des codes présents sur notre Github : 
+### Récapitulatif des notebooks et des scripts présents sur notre Github : 
 
-- __0_RAPPORT.ipynb__ : Notebook final renvoyant aux autres notebooks 
-- __1_script_scraping.py__ : Script **à ne pas exécuter** qui a permis de récolter les tweets avec le nombre de likes, retweets... nécessaires à la constitution de notre base de données 
-- __2_nettoyage.ipynb__ : Nettoyage de la base de données pour classer les tweets par date et pour supprimer les bots
-- __3_statdesc.ipynb__ : Constitution de graphiques pour révéler les tendances des tweets en 2024
-- __6_analyse_textuelle.ipynb__ : Fait ressortir les mots les plus utilisés dans les tweets en 2024 
+# Fichier rassemblant les notebooks :
+
+- __0_RAPPORT.ipynb__ : Notebook final renvoyant aux autres notebooks
+- __1_Script_scraping.py__ : Script **à ne pas exécuter** qui a permis de récolter les tweets avec le nombre de likes, retweets et les informations jugées nécessaires à la constitution de notre base de données 
+- __2_nettoyage.ipynb__ : Nettoyage de la base de données, classement des tweets par date et suppression des bots
+- __4_statdesc.ipynb__ : Constitution de graphiques pour révéler les tendances des tweets en 2024
+- __4.5_statdesc_violent.ipynb__ : Statistiques descriptives à partir de l'analyse de sentiment
+- __6_analyse_textuelle.ipynb__ : Fait ressortir la fréquence et l'utilisation de certains mots dans les tweets en 2024
 - __blabla__ : idées de compléments qui n'ont pas pu être réalisées??????
+
+# Fichier rassemblant les scripts 
+
+# Fichiers rassemblant les tableaux de données
