@@ -1,22 +1,26 @@
 import re
-import pandas as pd 
-from keras.regularizers import l2
-from tensorflow.keras.preprocessing.text import Tokenizer
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Embedding, LSTM, GRU, Dense, Dropout
-from sklearn.model_selection import train_test_split
-import matplotlib.pyplot as plt
+import pandas as pd
+import pickle
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
+# **Étape 1 : Charger le tokenizer**
+tokenizer_path = '/Users/thibaultkarpel/Desktop/python_ensae/Python_for_data_science/model/tokenizer.pickle'
+model_path = '/Users/thibaultkarpel/Desktop/python_ensae/Python_for_data_science/model/saved_model_optimized_3.h5'
 
-# Chargement des données
-input_file = '/Users/thibaultkarpel/Desktop/python_ensae/Python_for_data_science/data_set/tweets_fusionnes.csv'
-df = pd.read_csv(input_file)
+# Charger le tokenizer sauvegardé
+with open(tokenizer_path, 'rb') as handle:
+    tokenizer = pickle.load(handle)
 
-# Nettoyer les tweets (fonction déjà définie dans ton code)
+# **Étape 2 : Charger le modèle**
+model = load_model(model_path)
+
+# **Étape 3 : Définir les fonctions utilitaires**
 def clean_tweet(tweet):
-    tweet = str(tweet)
+    """
+    Fonction pour nettoyer les tweets : supprimer URLs, mentions, hashtags, ponctuations, etc.
+    """
+    tweet = str(tweet)  # Convertir en chaîne de caractères si nécessaire
     tweet = re.sub(r'\d+', '', tweet)  # Supprimer les nombres
     tweet = tweet.lower()
     tweet = re.sub(r"http\S+|www\S+|https\S+", '', tweet, flags=re.MULTILINE)  # Supprimer les URLs
@@ -25,30 +29,30 @@ def clean_tweet(tweet):
     tweet = tweet.strip()
     return tweet
 
-# Appliquer la fonction de nettoyage
+# **Étape 4 : Charger et nettoyer la base de données**
+input_file = '/Users/thibaultkarpel/Desktop/python_ensae/Python_for_data_science/data_set/tweets_content_cleaned.csv'
+df = pd.read_csv(input_file)
+
+# Appliquer le nettoyage sur les tweets
 df['cleaned_tweet'] = df['Content'].apply(clean_tweet)
 
-# Charger le modèle
-model = load_model('/Users/thibaultkarpel/Desktop/python_ensae/Python_for_data_science/model/saved_model.h5')
+# **Étape 5 : Convertir les tweets en séquences et appliquer le padding**
+max_len = 300  # Utilisez la même longueur que pendant l'entraînement !
 
-# Définir les paramètres de Tokenizer
-max_words = 5000  # Le nombre maximum de mots à garder
-max_len = 20  # Longueur maximale des séquences (nombre de mots par tweet)
+# Convertir les tweets nettoyés en séquences numériques
+sequences = tokenizer.texts_to_sequences(df['cleaned_tweet'])
 
-# Initialiser le Tokenizer et l'entraîner sur les tweets nettoyés
-tokenizer = Tokenizer(num_words=max_words, oov_token="<OOV>")
-tokenizer.fit_on_texts(df['cleaned_tweet'])  # Entraîner le tokenizer sur les tweets
+# Appliquer le padding sur les séquences
+padded_sequences = pad_sequences(sequences, maxlen=max_len, padding='post')
 
-# Préparer les tweets pour la prédiction
-sequences = tokenizer.texts_to_sequences(df['cleaned_tweet'])  # Convertir les tweets en séquences
-padded_sequences = pad_sequences(sequences, maxlen=max_len, padding='post')  # Padding des séquences
+# **Étape 6 : Prédire la violence avec le modèle**
+predictions = model.predict(padded_sequences, batch_size=64)  # Batch size pour accélérer les prédictions
 
-# Prédire la violence
-predictions = model.predict(padded_sequences)
+# Convertir les probabilités en classes binaires (0 = non violent, 1 = violent)
+df['violence_prédite'] = (predictions >= 0.5).astype(int)
 
-# Convertir les probabilités en classes binaires
-df['violence_prédite'] = (predictions >= 0.5).astype(int)  # 1 pour violent, 0 pour non violent
+# **Étape 7 : Sauvegarder les résultats**
+output_file = '/Users/thibaultkarpel/Desktop/python_ensae/Python_for_data_science/data_set/labeled_data_with_predictions.csv'
+df.to_csv(output_file, index=False)
 
-# Sauvegarder le tableau mis à jour
-df.to_csv('/Users/thibaultkarpel/Desktop/python_ensae/Python_for_data_science/data_set/labeled_data_with_predictions.csv', index=False)
-print("Colonne 'violence_prédite' ajoutée et tableau sauvegardé.")
+print("Prédictions ajoutées et fichier sauvegardé à l'emplacement :", output_file)
