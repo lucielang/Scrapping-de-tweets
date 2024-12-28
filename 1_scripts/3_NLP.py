@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 import pickle
 
 # Charger et nettoyer les données
-tweet = pd.read_csv('/Users/thibaultkarpel/Desktop/python_ensae/Python_for_data_science/training_data/train.csv')
+tweet = pd.read_csv('/home/onyxia/Scrapping_tweets-1/training_data/train.csv')
 
 # Combiner les colonnes de toxicité pour une classification binaire
 df_fixed = tweet
@@ -36,7 +36,7 @@ df_fixed = df_fixed.sample(frac=1, random_state=42).reset_index(drop=True)
 
 # Chargement des embeddings GloVe
 embedding_index = {}
-with open('/Users/thibaultkarpel/Desktop/python_ensae/Python_for_data_science/glove.6B/glove.6B.100d.txt', encoding='utf-8') as f:
+with open('/home/onyxia/Scrapping_tweets-1/training_data/glove.6B.100d.txt', encoding='utf-8') as f:
     for line in f:
         values = line.split()
         word = values[0]
@@ -105,7 +105,7 @@ history = model.fit(
 
 
 # Sauvegarder le tokenizer
-with open('/Users/thibaultkarpel/Desktop/python_ensae/Python_for_data_science/model/tokenizer.pickle', 'wb') as handle:
+with open('/home/onyxia/Scrapping_tweets-1/training_data/tokenizer.pickle', 'wb') as handle:
     pickle.dump(tokenizer, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
 print("Tokenizer sauvegardé avec succès !")
@@ -126,5 +126,5 @@ plt.legend()
 plt.show()
 
 # Sauvegarder le modèle
-model.save('/Users/thibaultkarpel/Desktop/python_ensae/Python_for_data_science/model/saved_model_optimized_2.h5')
+model.save('/home/onyxia/Scrapping_tweets-1/training_data/saved_model_optimized_3.h5')
 print("Modèle optimisé sauvegardé avec succès !")
