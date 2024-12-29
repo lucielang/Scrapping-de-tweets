@@ -13,6 +13,7 @@ import pickle
 
 # Charger et nettoyer les données
 tweet = pd.read_csv('/home/onyxia/Scrapping_tweets-1/training_data/train.csv')
+glove_path = '' #mettre le lien du fichier glove.6B.100d enregistrer en local afin de faire fonctionner le script en d'entrainer le modèle. 
 
 # Combiner les colonnes de toxicité pour une classification binaire
 df_fixed = tweet
@@ -36,7 +37,7 @@ df_fixed = df_fixed.sample(frac=1, random_state=42).reset_index(drop=True)
 
 # Chargement des embeddings GloVe
 embedding_index = {}
-with open('/home/onyxia/Scrapping_tweets-1/training_data/glove.6B.100d.txt', encoding='utf-8') as f:
+with open(glove_path, encoding='utf-8') as f:
     for line in f:
         values = line.split()
         word = values[0]
