@@ -11,7 +11,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pickle
 
-# Charger et nettoyer les données
+# Charger et nettoyer les données nécessaire pour l'entrainements du modèle. Cette base de données contient environ 400 000 tweets en anglais et sont notés sur différents aspects de toxicités que nous regrouperons en une seule variable binaire. 
 tweet = pd.read_csv(os.path.join('..','training_data','train.csv'))
 
 glove_path = '' #mettre le lien du fichier glove.6B.100d enregistrer en local afin de faire fonctionner le script en d'entrainer le modèle. 
