@@ -31,3 +31,54 @@ __0_RAPPORT.ipynb__ : Notebook final renvoyant aux autres notebooks
 - __training_data__ :
 
 
+├── 0_notebooks
+    │   ├── 0_RAPPORT.ipynb
+    │   ├── 0_rapport.ipynb
+    │   ├── 1_Script_scraping.ipynb
+    │   ├── 2_nettoyage.ipynb
+    │   ├── 4.5_statdesc_violent.ipynb
+    │   ├── 4_statdesc.ipynb
+    │   ├── 6_analyse_textuelle.ipynb
+    │   └── 7_modelisation.ipynb
+    ├── 1_scripts
+    │   ├── 3.5_Data_sorting.py
+    │   └── 3_NLP.py
+    ├── README.md
+    ├── data_fin
+    │   ├── bluesky_def.csv
+    │   ├── bluesky_nettoye.xlsx
+    │   ├── tweets_fusionnes.xlsx
+    │   ├── tweets_fusionnes_def.csv
+    │   └── tweets_fusionnes_def.xlsx
+    ├── data_processing
+    │   ├── bluesky_nettoye.xlsx
+    │   ├── tweets_exode_1.xlsx
+    │   ├── tweets_exode_1_date.xlsx
+    │   ├── tweets_exode_2.xlsx
+    │   ├── tweets_exode_2_date.xlsx
+    │   ├── tweets_last.xlsx
+    │   ├── tweets_last_2.xlsx
+    │   ├── tweets_last_2_date.xlsx
+    │   ├── tweets_last_3.xlsx
+    │   ├── tweets_last_3_date.xlsx
+    │   ├── tweets_last_4.xlsx
+    │   ├── tweets_last_4_date.xlsx
+    │   ├── tweets_last_5.xlsx
+    │   ├── tweets_last_5_date.xlsx
+    │   ├── tweets_last_6.xlsx
+    │   ├── tweets_last_6_date.xlsx
+    │   ├── tweets_last_date.xlsx
+    │   ├── tweets_leave_p1.xlsx
+    │   ├── tweets_leave_p1_date.xlsx
+    │   ├── tweets_quit.xlsx
+    │   ├── tweets_quit_date.xlsx
+    │   ├── tweets_stay_1.xlsx
+    │   └── tweets_stay_1_date.xlsx
+    ├── structure.txt
+    ├── test.py
+    ├── training_data
+    │   ├── saved_model_optimized_3.h5
+    │   ├── tokenizer.pickle
+    │   └── train.csv
+    ├── tweets_fusionnes.csv
+    └── tweets_fusionnes.xlsx
