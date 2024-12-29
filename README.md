@@ -19,17 +19,16 @@ __0_RAPPORT.ipynb__ : Notebook final renvoyant aux autres notebooks
 - __4_Statdesc.ipynb__ : Constitution de graphiques pour révéler les tendances des tweets en 2024
 - __4.5_Statdesc_violent.ipynb__ : Statistiques descriptives à partir de l'analyse de sentiment issue du NLP
 - __6_Analyse_textuelle.ipynb__ : Fait ressortir la fréquence et l'utilisation de certains mots dans les tweets en 2024
-- __7_Modelisation.ipynb__ : 
+- __7_Modelisation.ipynb__ : Régressions linéaires de la violence des tweets sur ke sujet "Bluesky" sur la violence des tweets sur le sujet "leave Twitter"
 
 # __1_scripts__ : dossier rassemblant les scripts 
 - __3_NLP.py__ : Script pour créer le réseau de neurones et la tokenisation adaptée pour trier les tweets
 - __3.5_Data_sorting.py__ : Script afin de traiter une base de données avec le modèle créé dans le script précédent. 
 
 # Dossiers rassemblant les tableaux de données
-- __data_fin__ : dossier avec les tableaux de données finales
-- __data_processing__ : dossier contenant les sorties du scraping puis les tables intermédiaires lors du nettoyage des données
-<<<<<<< HEAD
-- __training_data__ : 
+- __data_fin__ : Dossier avec les tableaux de données finales
+- __data_processing__ : Dossier contenant les sorties du scraping puis les tables intermédiaires lors du nettoyage des données
+- __training_data__ : Dossier contenant les fichiers liés au modèle utilisé pour le NLP et à la base d'entraînement
 
 
 ├── 0_notebooks
@@ -83,6 +82,3 @@ __0_RAPPORT.ipynb__ : Notebook final renvoyant aux autres notebooks
     │   └── train.csv
     ├── tweets_fusionnes.csv
     └── tweets_fusionnes.xlsx
-=======
-- __training_data__ :
->>>>>>> b6b7db8f306d1897481d7b66417ead54c568e16a
