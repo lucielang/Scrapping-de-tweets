@@ -28,6 +28,7 @@ __0_RAPPORT.ipynb__ : Notebook final renvoyant aux autres notebooks
 # Dossiers rassemblant les tableaux de données
 - __data_fin__ : dossier avec les tableaux de données finales
 - __data_processing__ : dossier contenant les sorties du scraping puis les tables intermédiaires lors du nettoyage des données
+<<<<<<< HEAD
 - __training_data__ : 
 
 
@@ -82,3 +83,6 @@ __0_RAPPORT.ipynb__ : Notebook final renvoyant aux autres notebooks
     │   └── train.csv
     ├── tweets_fusionnes.csv
     └── tweets_fusionnes.xlsx
+=======
+- __training_data__ :
+>>>>>>> b6b7db8f306d1897481d7b66417ead54c568e16a
