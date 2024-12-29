@@ -14,7 +14,7 @@ Pour trouver notre notebook final, il suffit de cliquer sur celui qui s'intitule
 __0_RAPPORT.ipynb__ : Notebook final renvoyant aux autres notebooks
 
 # __0_notebooks__ : dossier qui rassemble tous nos notebooks
-- __1_Script_scraping.ipynb__ : Script **à ne pas exécuter** qui a permis de récolter les tweets avec le nombre de likes, retweets et les informations jugées nécessaires à la constitution de notre base de données 
+- __1_Script_scraping.ipynb__ : Script **à ne pas exécuter** qui a permis de récolter les tweets avec le nombre de likes, retweets et les informations jugées nécessaires à la constitution de notre base de données.
 - __2_nettoyage.ipynb__ : Nettoyage de la base de données, classement des tweets par date et suppression des bots
 - __4_Statdesc.ipynb__ : Constitution de graphiques pour révéler les tendances des tweets en 2024
 - __4.5_Statdesc_violent.ipynb__ : Statistiques descriptives à partir de l'analyse de sentiment issue du NLP
@@ -28,7 +28,7 @@ __0_RAPPORT.ipynb__ : Notebook final renvoyant aux autres notebooks
 # Dossiers rassemblant les tableaux de données
 - __data_fin__ : dossier avec les tableaux de données finales
 - __data_processing__ : dossier contenant les sorties du scraping puis les tables intermédiaires lors du nettoyage des données
-- __training_data__ :
+- __training_data__ : 
 
 
 ├── 0_notebooks
