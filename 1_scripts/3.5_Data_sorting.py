@@ -3,10 +3,13 @@ import pandas as pd
 import pickle
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
+import os 
 
 # **Étape 1 : Charger le tokenizer**
-tokenizer_path = '/home/onyxia/Scrapping_tweets-1/training_data/tokenizer.pickle'
-model_path = '/home/onyxia/Scrapping_tweets-1/training_data/saved_model_optimized_3.h5'
+
+tokenizer_path = os.path.join('..','training_data','tokenizer.pickle')
+model_path = os.path.join('..','training_data','saved_model_optimized_3.h5')
+
 
 # Charger le tokenizer sauvegardé
 with open(tokenizer_path, 'rb') as handle:
@@ -30,7 +33,7 @@ def clean_tweet(tweet):
     return tweet
 
 # **Étape 4 : Charger et nettoyer la base de données**
-input_file = ''
+input_file = '' #inscrire le chemin où se trouve le fichier à analyser et trier
 df = pd.read_csv(input_file)
 
 # Appliquer le nettoyage sur les tweets
@@ -52,7 +55,7 @@ predictions = model.predict(padded_sequences, batch_size=64)  # Batch size pour 
 df['violence_prédite'] = (predictions >= 0.5).astype(int)
 
 # **Étape 7 : Sauvegarder les résultats**
-output_file = ''
+output_file = '' #inscrire le chemin où enregistrer le fichier une fois trié
 df.to_csv(output_file, index=False)
 
 print("Prédictions ajoutées et fichier sauvegardé à l'emplacement :", output_file)
