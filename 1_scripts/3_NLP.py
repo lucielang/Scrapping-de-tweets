@@ -12,7 +12,8 @@ import matplotlib.pyplot as plt
 import pickle
 
 # Charger et nettoyer les données
-tweet = pd.read_csv('/home/onyxia/Scrapping_tweets-1/training_data/train.csv')
+tweet = pd.read_csv(os.path.join('..','training_data','train.csv'))
+
 glove_path = '' #mettre le lien du fichier glove.6B.100d enregistrer en local afin de faire fonctionner le script en d'entrainer le modèle. 
 
 # Combiner les colonnes de toxicité pour une classification binaire
@@ -106,7 +107,7 @@ history = model.fit(
 
 
 # Sauvegarder le tokenizer
-with open('/home/onyxia/Scrapping_tweets-1/training_data/tokenizer.pickle', 'wb') as handle:
+with open(os.path.join(':','training_data','tokenizer.pickle'), 'wb') as handle:
     pickle.dump(tokenizer, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
 print("Tokenizer sauvegardé avec succès !")
@@ -127,5 +128,5 @@ plt.legend()
 plt.show()
 
 # Sauvegarder le modèle
-model.save('/home/onyxia/Scrapping_tweets-1/training_data/saved_model_optimized_3.h5')
+model.save(os.path.join('..','training_data','saved_model_optimized_3.h5'))
 print("Modèle optimisé sauvegardé avec succès !")
