@@ -14,7 +14,7 @@ Pour trouver notre notebook final, il suffit de cliquer sur celui qui s'intitule
 __0_RAPPORT.ipynb__ : Notebook final renvoyant aux autres notebooks
 
 # __0_notebooks__ : dossier qui rassemble tous nos notebooks
-- __1_Script_scraping.ipynb__ : Script **à ne pas exécuter** qui a permis de récolter les tweets avec le nombre de likes, retweets et les informations jugées nécessaires à la constitution de notre base de données 
+- __1_Script_scraping.ipynb__ : Script **à ne pas exécuter** qui a permis de récolter les tweets avec le nombre de likes, retweets et les informations jugées nécessaires à la constitution de notre base de données.
 - __2_nettoyage.ipynb__ : Nettoyage de la base de données, classement des tweets par date et suppression des bots
 - __4_Statdesc.ipynb__ : Constitution de graphiques pour révéler les tendances des tweets en 2024
 - __4.5_Statdesc_violent.ipynb__ : Statistiques descriptives à partir de l'analyse de sentiment issue du NLP
@@ -28,4 +28,61 @@ __0_RAPPORT.ipynb__ : Notebook final renvoyant aux autres notebooks
 # Dossiers rassemblant les tableaux de données
 - __data_fin__ : dossier avec les tableaux de données finales
 - __data_processing__ : dossier contenant les sorties du scraping puis les tables intermédiaires lors du nettoyage des données
+<<<<<<< HEAD
+- __training_data__ : 
+
+
+├── 0_notebooks
+    │   ├── 0_RAPPORT.ipynb
+    │   ├── 0_rapport.ipynb
+    │   ├── 1_Script_scraping.ipynb
+    │   ├── 2_nettoyage.ipynb
+    │   ├── 4.5_statdesc_violent.ipynb
+    │   ├── 4_statdesc.ipynb
+    │   ├── 6_analyse_textuelle.ipynb
+    │   └── 7_modelisation.ipynb
+    ├── 1_scripts
+    │   ├── 3.5_Data_sorting.py
+    │   └── 3_NLP.py
+    ├── README.md
+    ├── data_fin
+    │   ├── bluesky_def.csv
+    │   ├── bluesky_nettoye.xlsx
+    │   ├── tweets_fusionnes.xlsx
+    │   ├── tweets_fusionnes_def.csv
+    │   └── tweets_fusionnes_def.xlsx
+    ├── data_processing
+    │   ├── bluesky_nettoye.xlsx
+    │   ├── tweets_exode_1.xlsx
+    │   ├── tweets_exode_1_date.xlsx
+    │   ├── tweets_exode_2.xlsx
+    │   ├── tweets_exode_2_date.xlsx
+    │   ├── tweets_last.xlsx
+    │   ├── tweets_last_2.xlsx
+    │   ├── tweets_last_2_date.xlsx
+    │   ├── tweets_last_3.xlsx
+    │   ├── tweets_last_3_date.xlsx
+    │   ├── tweets_last_4.xlsx
+    │   ├── tweets_last_4_date.xlsx
+    │   ├── tweets_last_5.xlsx
+    │   ├── tweets_last_5_date.xlsx
+    │   ├── tweets_last_6.xlsx
+    │   ├── tweets_last_6_date.xlsx
+    │   ├── tweets_last_date.xlsx
+    │   ├── tweets_leave_p1.xlsx
+    │   ├── tweets_leave_p1_date.xlsx
+    │   ├── tweets_quit.xlsx
+    │   ├── tweets_quit_date.xlsx
+    │   ├── tweets_stay_1.xlsx
+    │   └── tweets_stay_1_date.xlsx
+    ├── structure.txt
+    ├── test.py
+    ├── training_data
+    │   ├── saved_model_optimized_3.h5
+    │   ├── tokenizer.pickle
+    │   └── train.csv
+    ├── tweets_fusionnes.csv
+    └── tweets_fusionnes.xlsx
+=======
 - __training_data__ :
+>>>>>>> b6b7db8f306d1897481d7b66417ead54c568e16a
