@@ -1,9 +1,9 @@
 # Etude de l'utilisation de Twitter par ses utilisateurs en 2024 :bird:
 
-Bienvenue sur le Github présentant notre projet Python dans le cadre du cours Python pour la data science. 
+Bienvenue sur le Github présentant notre projet Python dans le cadre du cours Python pour la Data Science. 
 
 L'objectif était, en récoltant par scraping les tweets contenant les mots clefs *Musk*, *Twitter* et des mots synonymes de *quit*, *leave* ou *stay*, d'obtenir une base de tweets avec les utilisateurs qui s'étaient exprimés sur la question de quitter ou non Twitter. Nous avons ainsi pu observer les tendances exprimées en 2024, puis fait de l'analyse textuelle en regardant les mots qui revenaient le plus souvent dans les tweets.
-En passant par du NLP, nous avons classifié les tweets en 2 catégories et étudier corrélation entre positif nbr de likes toussa COMPLETER
+En passant par du NLP, nous avons classifié les tweets en 2 catégories (toxiques et non toxiques) et étudié via une analyse textuelle fréquentielle le registre employé dans chacune des catégories, puis avons finalement tenté d'identifier une corrélation entre les tweets qui exprimaient un soutien de Bluesky (réseau social souvent considéré comme une alternative à Twitter) et ceux qui critiquaient Twitter.
 
 Pour trouver notre notebook final, il suffit de cliquer sur celui qui s'intitule **0_RAPPORT.ipynb** 
 
